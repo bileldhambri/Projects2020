@@ -7,13 +7,13 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-
+@Entity(name = "Electeur")
+@DiscriminatorValue("Electeur")
 @Getter
 @Setter
-@Entity
 @Data
-public class Electeur  extends Personne implements Serializable {
+public class Electeur  extends Personne{
 
     @OneToMany(mappedBy ="liste_avis_electeur")
-    ArrayList<Avis> listAvis = new ArrayList<Avis>();
+    ArrayList<Avis> listAvis = new ArrayList<>();
 }

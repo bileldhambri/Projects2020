@@ -19,9 +19,11 @@ public class Liste_Candidat implements Serializable {
     int id ;
     @NonNull
     String nomListe;
+    String type;
     int scoreTotale;
+
     @OneToMany(mappedBy = "liste_candidat")
-    HashSet<Candidat> list = new HashSet <Candidat>();
+    HashSet<Candidat> list = new HashSet<>();
 
 
 

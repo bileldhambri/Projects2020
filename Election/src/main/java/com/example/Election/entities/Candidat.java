@@ -13,7 +13,8 @@ import java.util.Set;
 
 @Entity
 @Data
-public class Candidat extends Personne implements Serializable {
+@DiscriminatorValue("C")
+public class Candidat extends Personne  {
     @Getter
     @Setter
     private int Pos;
@@ -23,14 +24,15 @@ public class Candidat extends Personne implements Serializable {
     @Getter
     @Setter
     private int score;
+
     @ManyToOne
     @JoinColumn(name="Candidat_id")
     private Liste_Candidat liste_candidat;
 
     @OneToMany(mappedBy ="liste_avis_candidat")
-    ArrayList<Avis> listAvis = new ArrayList<Avis>();
+    ArrayList<Avis> listAvis = new ArrayList<>();
 
-    @OneToMany(mappedBy = "liste_candidats",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "candidat_id",cascade = CascadeType.ALL)
     private Set<acitivte> activites=new HashSet<>();
 
 }

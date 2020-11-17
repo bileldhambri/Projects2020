@@ -20,7 +20,7 @@ public class acitivte {
 
    @ManyToOne
     @JoinColumn(name="Candidat_id")
-    private Candidat liste_candidats;
+    private Candidat candidat;
 
     @OneToMany(mappedBy = "leur_activite",cascade = CascadeType.ALL)
     private Set<Support> Supports=new HashSet<>();

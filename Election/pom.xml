@@ -103,7 +103,8 @@
 					<target>14</target>
 				</configuration>
 			</plugin>
-		</plugins>
+
+        </plugins>
 	</build>
 
 </project>
