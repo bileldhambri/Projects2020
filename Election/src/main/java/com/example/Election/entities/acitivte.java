@@ -20,9 +20,9 @@ public class acitivte {
     private Date Duree;
     private String typeACT;
 
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name="Candidat_id")
-    private Candidat candidat;
+    private Candidat liste_candidats;
 
     @OneToMany(mappedBy = "leur_activite",cascade = CascadeType.ALL)
     private Set<Support> Supports=new HashSet<>();

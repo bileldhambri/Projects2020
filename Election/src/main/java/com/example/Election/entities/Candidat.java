@@ -14,10 +14,9 @@ import java.util.Set;
 @Setter
 @Entity
 @Data
-public class Candidat extends Personne implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+@DiscriminatorValue("candidat")
+public class Candidat extends Personne {
+
     private int Pos;
     private String Nom_partie;
     private int score;

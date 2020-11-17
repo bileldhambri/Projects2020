@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @Entity
 @Data
+@DiscriminatorValue("electeur")
 public class Electeur  extends Personne implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
