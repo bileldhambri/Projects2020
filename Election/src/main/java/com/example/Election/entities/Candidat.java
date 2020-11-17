@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 @Entity
 @Data
@@ -20,7 +22,10 @@ public class Candidat extends Personne implements Serializable {
     @Setter
     private int score;
     @ManyToOne
-    @JoinColumn(name="Id_Candidat")
-    private List<Liste_Candidat> listCandidat;
+    @JoinColumn(name="Candidat_id")
+    private Liste_Candidat liste_candidat;
+
+    @OneToMany(mappedBy ="liste_avis_candidat")
+    ArrayList<Avis> listAvis = new ArrayList<Avis>();
 
 }
