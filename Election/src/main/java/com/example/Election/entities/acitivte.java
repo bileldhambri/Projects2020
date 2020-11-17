@@ -4,6 +4,8 @@ import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class acitivte {
@@ -15,8 +17,13 @@ public class acitivte {
     private int noteACT;
     private Date Duree;
     private String typeACT;
-    /*@ManyToOne
-    private Candidat leur_candidat;*/
+
+   @ManyToOne
+    @JoinColumn(name="Candidat_id")
+    private Candidat liste_candidats;
+
+    @OneToMany(mappedBy = "leur_activite",cascade = CascadeType.ALL)
+    private Set<Support> Supports=new HashSet<>();
 
 
 
