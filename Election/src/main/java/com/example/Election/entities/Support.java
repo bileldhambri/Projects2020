@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 @Getter
 @Setter
-//@Data
+@Data
 @Entity
 public class Support {
     @Id

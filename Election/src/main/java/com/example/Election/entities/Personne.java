@@ -1,13 +1,15 @@
 package com.example.Election.entities;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
+@Entity
+@Data
 abstract class  Personne implements Serializable {
 
     @Id

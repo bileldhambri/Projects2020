@@ -1,5 +1,6 @@
 package com.example.Election.entities;
 
+import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 public class acitivte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

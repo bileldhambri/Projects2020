@@ -14,17 +14,16 @@ import java.io.Serializable;
 public class Avis implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
     @NonNull
-    String note;
+    private String note;
     @ManyToOne
     @JoinColumn(name="id_Candidat")
     private Candidat liste_avis_candidat;
 
     @ManyToOne
-    @JoinColumn(name="id_Candidat")
+    @JoinColumn(nullable=false)
     private Electeur liste_avis_electeur;
-
 
 
 }

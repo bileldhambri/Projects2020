@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,12 +17,12 @@ import java.util.HashSet;
 public class Liste_Candidat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id ;
+    private int id ;
     @NonNull
-    String nomListe;
-    int scoreTotale;
+    private String nomListe;
+    private int scoreTotale;
     @OneToMany(mappedBy = "liste_candidat")
-    HashSet<Candidat> list = new HashSet <Candidat>();
+    private Set<Candidat> list = new HashSet <>();
 
 
 

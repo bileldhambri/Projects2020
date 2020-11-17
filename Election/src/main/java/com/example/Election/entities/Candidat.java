@@ -10,25 +10,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@Getter
+@Setter
 @Entity
 @Data
 public class Candidat extends Personne implements Serializable {
-    @Getter
-    @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private int Pos;
-    @Getter
-    @Setter
     private String Nom_partie;
-    @Getter
-    @Setter
     private int score;
     @ManyToOne
     @JoinColumn(name="Candidat_id")
     private Liste_Candidat liste_candidat;
 
-    @OneToMany(mappedBy ="liste_avis_candidat")
-    ArrayList<Avis> listAvis = new ArrayList<Avis>();
+    @OneToMany(mappedBy ="liste_avis_candidat",cascade = CascadeType.ALL)
+    List<Avis> listAvis ;
 
     @OneToMany(mappedBy = "liste_candidats",cascade = CascadeType.ALL)
     private Set<acitivte> activites=new HashSet<>();
