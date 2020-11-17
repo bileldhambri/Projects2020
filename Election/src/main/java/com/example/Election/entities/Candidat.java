@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Entity
 @Data
 public class Candidat extends Personne implements Serializable {
@@ -27,5 +29,8 @@ public class Candidat extends Personne implements Serializable {
 
     @OneToMany(mappedBy ="liste_avis_candidat")
     ArrayList<Avis> listAvis = new ArrayList<Avis>();
+
+    @OneToMany(mappedBy = "liste_candidats",cascade = CascadeType.ALL)
+    private Set<acitivte> activites=new HashSet<>();
 
 }

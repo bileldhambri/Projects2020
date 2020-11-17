@@ -16,8 +16,10 @@ public class Support {
     private long idSUP;
     @NonNull
     private String nomSUP;
-    @NonNull
+   @NonNull
     private String refSUP;
-    @ManyToOne
+
+  @ManyToOne
+    @JoinColumn(name="id_Aactivite")
     private acitivte leur_activite;
 }
