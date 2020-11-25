@@ -6,8 +6,7 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
-@Getter
-@Setter
+
 @Data
 @Entity
 public class Support {
@@ -18,8 +17,9 @@ public class Support {
     private String nomSUP;
     @NonNull
     private String refSUP;
-
     @ManyToOne
-    @JoinColumn(name="id_Aactivite")
-    private acitivte leur_activite;
+    @JoinColumn(name="activité_id")
+    private Activité activité;
+
+
 }

@@ -18,12 +18,10 @@ public class Avis implements Serializable {
     @NonNull
     private String note;
     @ManyToOne
-    @JoinColumn(name="id_Candidat")
-    private Candidat liste_avis_candidat;
-
+    @JoinColumn(name = "candidat_id")
+    private Candidat candidat_id;
     @ManyToOne
-    @JoinColumn(nullable=false)
-    private Electeur liste_avis_electeur;
-
+    @JoinColumn(name = "electeur_id")
+    private Candidat electeur_id;
 
 }

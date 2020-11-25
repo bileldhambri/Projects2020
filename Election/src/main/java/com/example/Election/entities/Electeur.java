@@ -7,17 +7,19 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-@Getter
-@Setter
+
 @Entity
 @Data
-@DiscriminatorValue("electeur")
-public class Electeur  extends Personne implements Serializable {
+@DiscriminatorValue("Electeur")
+@Table(name="Electeur")
+public class Electeur  extends Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToMany(mappedBy ="liste_avis_electeur",cascade = CascadeType.ALL)
-    List<Avis> listAvis ;
+    @OneToMany(mappedBy = "electeur_id",cascade=CascadeType.ALL)
+    private Collection<Avis> liste_avis;
+
 }

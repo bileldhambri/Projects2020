@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,8 +22,9 @@ public class Liste_Candidat implements Serializable {
     @NonNull
     private String nomListe;
     private int scoreTotale;
-    @OneToMany(mappedBy = "liste_candidat")
-    private Set<Candidat> list = new HashSet <>();
+    @OneToMany(mappedBy = "liste_candidat",cascade=CascadeType.ALL)
+    private Collection<Candidat> liste_candidat;
+
 
 
 

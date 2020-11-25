@@ -4,13 +4,14 @@ import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Data
-public class acitivte {
+public class Activité {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idACT;
@@ -19,13 +20,11 @@ public class acitivte {
     private int noteACT;
     private Date Duree;
     private String typeACT;
-
-    @ManyToOne
-    @JoinColumn(name="Candidat_id")
-    private Candidat liste_candidats;
-
-    @OneToMany(mappedBy = "leur_activite",cascade = CascadeType.ALL)
-    private Set<Support> Supports=new HashSet<>();
+@ManyToOne
+@JoinColumn(name = "candidat_id")
+    private Candidat candidat;
+@OneToMany(mappedBy = "activité",cascade = CascadeType.ALL)
+private Collection<Support> Supports;
 
 
 
