@@ -20,8 +20,8 @@ public class CandidatController {
     }
 
     @PostMapping("/addcandidats")
-    public List<Candidat> addCandidats(@RequestBody List<Candidat> products) {
-        return r.saveAll(products);
+    public List<Candidat> addCandidats(@RequestBody List<Candidat> candidat) {
+        return r.saveAll(candidat);
     }
 
     @GetMapping("/candidats")
@@ -34,11 +34,11 @@ public class CandidatController {
         return r.findById(id);
     }
 
-  /*  @GetMapping("/candidat/{nom}")
+    @GetMapping("/candidatByName/{nom}")
     public Candidat findCandidatByName(@PathVariable String nom) {
         return r.findByName(nom);
-    }*/
-    @PutMapping("/update")
+    }
+    @PutMapping("/updateCandidat")
     public Candidat updateCandidat(@RequestBody Candidat candidat) {
         Candidat c = r.findById((long) candidat.getId()).orElse(null);
         c.setName(candidat.getName());
@@ -52,9 +52,9 @@ public class CandidatController {
         return r.save(c);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteCandidat(@PathVariable int id) {
-         r.deleteById((long) id);
+    @DeleteMapping("/deleteCandidat/{id}")
+    public String deleteCandidat(@PathVariable Long id) {
+         r.deleteById( id);
          return "Candidat removed !! " + id;
     }
 }

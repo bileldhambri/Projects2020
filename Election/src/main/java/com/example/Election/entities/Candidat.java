@@ -1,14 +1,9 @@
 package com.example.Election.entities;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -50,5 +45,7 @@ public class Candidat extends Personne {
     private Collection<Activité> Activités;
     @OneToMany(mappedBy = "candidat_id",cascade=CascadeType.ALL)
     private Collection<Avis> liste_avis;
+    @OneToMany(mappedBy = "candidat_fr",cascade=CascadeType.ALL)
+    private Collection<Formation> formation;
 
 }

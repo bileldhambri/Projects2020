@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AvisRepository extends JpaRepository<Avis,Long> {
 
-    //cretate connection...
-    //request=insert into Competition .....
 }

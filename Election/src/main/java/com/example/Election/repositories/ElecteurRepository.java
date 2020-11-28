@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ElecteurRepository extends JpaRepository<Electeur,Long> {
+    Electeur findByName(String nom);
 
     //cretate connection...
     //request=insert into Competition .....
