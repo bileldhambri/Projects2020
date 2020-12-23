@@ -22,23 +22,20 @@ public class AdminController {
         return r.save(a);
     }
 
-    @GetMapping("/AdminById/{id}")
-    public Optional<admin> findByIdAdmin(@PathVariable long id) {
-        return r.findById(  id );
+    @GetMapping("/AdminById/{Login}")
+    public Optional<admin> findByIdAdmin(@PathVariable String Login) {
+        return r.findById(Long.valueOf(Login));
     }
 
 
-    @GetMapping("/verifAdmin/{login}")
-    public Optional<admin> verifadmin(@PathVariable String Login) {
-        return r.findByLogin(Login);
-    }
+
+
 
     @PutMapping("/updateAdmin")
     public admin updateAdmin(@RequestBody admin a) {
-        admin c = r.findById((long) a.getId()).orElse(null);
+        admin c = r.findById(Long.valueOf(a.getLogin())).orElse(null);
         c.setNom(a.getNom());
         c.setPrenom(a.getPrenom());
-        c.setLogin(a.getLogin());
         c.setPassword(a.getPassword());
         return r.save(c);
     }

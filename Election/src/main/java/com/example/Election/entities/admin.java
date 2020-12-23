@@ -11,21 +11,15 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class admin {
-    public long getId() {
-        return id;
-    }
 
-    public admin(long id, String nom, String prenom, String login, String password) {
-        this.id = id;
+    public admin(String nom, String prenom, String login, String password) {
+
         this.nom = nom;
         this.prenom = prenom;
         Login = login;
         Password = password;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getNom() {
         return nom;
@@ -60,10 +54,10 @@ public class admin {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue
+    private String Login;
     private String nom;
     private String prenom;
-    private String Login;
+
     private String Password;
 }

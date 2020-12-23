@@ -33,14 +33,13 @@ public class FormationController {
         return r.findById((long) id);
     }
 
-    /*@GetMapping("/FormationByName/{nom}")
-    public Formation findFormationByName(@PathVariable String nom) {
-        return r.findByName(nom);
-    }*/
+
     @PutMapping("/updateFormation")
     public Formation updateFormation(@RequestBody Formation formation) {
         Formation c = r.findById((long) formation.getId()).orElse(null);
         c.setDescription(c.getDescription());
+        c.setInstitut(c.getInstitut());
+        c.setDiplome(c.getDiplome());
 
         return r.save(c);
     }

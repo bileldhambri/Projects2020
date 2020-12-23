@@ -47,5 +47,7 @@ public class Candidat extends Personne {
     private Collection<Avis> liste_avis;
     @OneToMany(mappedBy = "candidat_fr",cascade=CascadeType.ALL)
     private Collection<Formation> formation;
+    @OneToMany(mappedBy = "candidat_fr",cascade=CascadeType.ALL)
+    private Collection<Experience> experince;
 
 }
